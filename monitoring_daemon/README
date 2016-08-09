@@ -1,0 +1,39 @@
+Monitoring Daemon
+=================
+
+This tool allows to monitor resource for analytics application using Spark's framework and OpenStack Sahara.
+The tool can be used to monitor system resource as well.
+The resource information are stored in a CSV file.
+
+
+How to install Monitoring Daemon
+--------------------------------
+
+To install Monitoring Daemon run the following command:
+
+```py
+$ /bin/bash <path_to_project>/sbin/setup.sh
+```
+
+
+How to launch Monitoring Daemon
+-------------------------------
+
+Once the tool has been installed, it is possible to launch it by using the following command:
+```py
+$ sudo monitoring_daemon
+```
+
+The above program takes no parameters and it will spawn many threads of the tool based on the framework running inside the machine.
+The framework supported for now are: HDFS (NameNode and Datanode), Spark (Master and Worker) and Swift.
+
+In `sbin/` there is also one more script: stop.sh`.
+Like the name suggest, it can be used to stop all the instances of the monitoring tool.
+
+
+Retrieve the Log File
+------------------------
+
+Log file are saved in the directory specified in `monitoring_daemon/config.py`.
+
+    

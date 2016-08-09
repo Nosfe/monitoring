@@ -1,0 +1,2 @@
+include sbin/setup.sh
+include sbin/stop.sh
