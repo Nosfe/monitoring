@@ -299,6 +299,7 @@ def parse_app(path, scenario, workload):
     swift_log = []
 
     for SUBDIR in os.listdir(path):
+        requests_per_method = {}
         total_requests_from_spark = 0
         ROOT = os.path.join(path, SUBDIR)
         for file_or_dir in os.listdir(os.path.join(ROOT, 'spark_logs')):
@@ -441,13 +442,20 @@ def parse_app(path, scenario, workload):
                             result = spark_logs_parser.extract_http_requests(executor_lines)
                             print("#  Executor: " + str(result))
                             for method in result:
+                                if method not in requests_per_method:
+                                    requests_per_method[method] = 0
+                                requests_per_method[method] += result[method]
                                 total_requests_from_spark += result[method]
                         elif file_ext == '.log':
                             driver_lines = spark_logs_parser.parse_lines(os.path.join(ROOT1, filename))
                             result = spark_logs_parser.extract_http_requests(driver_lines)
                             print("#  Driver: " + str(result))
                             for method in result:
+                                if method not in requests_per_method:
+                                    requests_per_method[method] = 0
+                                requests_per_method[method] += result[method]
                                 total_requests_from_spark += result[method]
+        print("#  Total:" + str(requests_per_method))
         print("#  Total Swift Requests done by Spark: {}".format(total_requests_from_spark))
         print "# -------------------------------------------------"
 

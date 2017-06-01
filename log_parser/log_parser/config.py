@@ -14,17 +14,20 @@ PLOT_DIR = '../plots'
 #             |_<hostname>
 #               |_<monitoring daemon logs files>
 #
-LOGS_PATH = 'D:\\Nosfe\\Documents\\Education\\Eurecom\\MasterVM\\Logs\\IBM\\first_set'
+LOGS_PATH = 'D:\\Documents\\Education\\Eurecom\\MasterVM\\Logs\\IBM\\validate'
 
 # A dictionary of the workloads to be parsed
 #     key   = folder_name
 #     value = label
 WORKLOADS = {
-    'wordcount': 'WordCount',
-    'wordcount_logSwift': 'WordCount',
-    'dfsio': 'DFSIO',
-    'tpcds': 'TPC-DS',
-    'decision_tree': 'Decision_Tree'
+    # 'wordcount': 'WordCount',
+    # 'wordcount_logSwift': 'WordCount',
+    'readOnly_logSwift': 'ReadOnly',
+    # 'readWrite_logSwift': 'ReadWrite',
+    # 'terasort_logSwift': 'Terasort',
+    # 'dfsio_logSwift': 'DFSIO',
+    # 'tpcds_logSwift': 'TPC-DS',
+    # 'decision_tree': 'Decision_Tree'
 }
 
 # A dictionary of the scenarios to be parsed
